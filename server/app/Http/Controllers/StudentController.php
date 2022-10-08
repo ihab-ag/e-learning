@@ -27,5 +27,21 @@ class StudentController extends Controller
             'status'=>200,
             'assignments'=>$assignments,
         ]);
-        }
+    }
+
+    public function submitAssignment(Request $request){
+        
+        $student= Auth::user();
+        $studen_id=$student->id;
+        $assignment_id= $request->assignment_id;
+
+        $assignment= Assignment::find($assignment_id);
+
+        $assigment->push('submissions', array("student"=>$student_id,"text"=>$request->text));
+        
+        return request()->json([
+            "status"=>200
+        ]);
+
+    }
 }
