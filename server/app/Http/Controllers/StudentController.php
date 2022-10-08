@@ -44,4 +44,20 @@ class StudentController extends Controller
         ]);
 
     }
+
+    public function courses(){
+
+        $student= Auth::user();
+
+        $courses_id= $student->courses;
+        $courses=[];
+        foreach($courses_id as $course_id){
+            $courses[]= Course::find('id',$course_id);
+        }
+
+        return response()->json([
+            'status'=>200,
+            'courses'=>$courses,
+        ]);
+    }
 }
