@@ -8,6 +8,8 @@ use App\Http\Controllers\InstructorController;
 
 Route::post('login',[AuthController::class, 'login']);
 
+Route::get('courses',[InstructorController::class, 'getCourses']);
+
 Route::group(["middleware" => "auth"], function(){
 
     Route::get('refresh',[AuthController::class, 'refresh']);
