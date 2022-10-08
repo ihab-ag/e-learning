@@ -8,6 +8,7 @@ use App\Http\Controllers\InstructorController;
 
 Route::post('login',[AuthController::class, 'login']);
 
+Route::post('assign-student',[InstructorController::class, 'assignStudent']);
 Route::get('courses',[InstructorController::class, 'getCourses']);
 
 Route::group(["middleware" => "auth"], function(){
