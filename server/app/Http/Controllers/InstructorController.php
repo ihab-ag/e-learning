@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Assignment;
 
 class InstructorController extends Controller
 {
@@ -39,4 +40,19 @@ class InstructorController extends Controller
             'status'=>200
         ]);
     }
+
+    public function addAssignment(Request $request){
+
+        $assignment = new Assignment;
+
+        $assignment->name= $request->name;
+        $assignment->course= $request->course_id;
+        
+        $assignment->save();
+
+        return response()->json([
+            'status'=>200
+        ]);
+    }
 }
+
