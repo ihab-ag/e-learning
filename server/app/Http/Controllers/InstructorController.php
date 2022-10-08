@@ -27,4 +27,16 @@ class InstructorController extends Controller
             "courses"=>$response
         ]);
     }
+
+    public function assignStudent(Request $request){
+
+        $student= User::find($request->student_id);
+        $course= Course::find($request->course_id);
+
+        $student->push('courses',$course->name);
+
+        return response()->json([
+            'status'=>200
+        ]);
+    }
 }
