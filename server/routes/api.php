@@ -21,7 +21,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::group(["middleware"=> "admin"],function(){
         Route::post('add-user',[AdminController::class,'addUser']);
         Route::get('add-course',[AdminController::class,'addCourse']);
-        Route::post('asign-instructor',[AdminController::class, 'assignInstructor']);
+        Route::post('assign-instructor',[AdminController::class, 'assignInstructor']);
     });
     Route::group(["middleware"=> "instructor"],function(){
         Route::post('assign-student',[InstructorController::class, 'assignStudent']);
