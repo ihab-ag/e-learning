@@ -41,8 +41,7 @@ class AdminController extends Controller
         $user->save();
 
         return response()->json([
-            "message"=>"Success",
-            200
+            "status"=>200
         ]);
     }
 }
