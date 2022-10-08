@@ -35,7 +35,7 @@ class InstructorController extends Controller
         $student= User::find($request->student_id);
         $course= Course::find($request->course_id);
 
-        $student->push('courses',$course->name);
+        $student->push('courses',$course->id);
 
         return response()->json([
             'status'=>200
