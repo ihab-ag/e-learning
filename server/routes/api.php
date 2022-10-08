@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\StudentController;
 
 Route::post('login',[AuthController::class, 'login']);
-
+Route::get('all-courses',[StudentController::class, 'viewAssignments']);
 
 
 Route::group(["middleware" => "auth"], function(){
