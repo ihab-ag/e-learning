@@ -46,6 +46,7 @@ class InstructorController extends Controller
         $assignment = new Assignment;
 
         $assignment->name= $request->name;
+        $assignment->specs= $request->specs;
         $assignment->course= $request->course_id;
         
         $assignment->save();
