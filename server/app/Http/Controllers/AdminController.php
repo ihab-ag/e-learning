@@ -35,7 +35,7 @@ class AdminController extends Controller
         $type= $request->type;
         
         if($type=='student'){
-            $user->courses= "";
+            $user->courses= [];
         }
 
         $user->save();
