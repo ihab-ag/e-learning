@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Course;
 
 class AdminController extends Controller
 {
-    
     function addUser(Request $request){
        
         $this->validate($request,[
@@ -42,6 +42,17 @@ class AdminController extends Controller
 
         return response()->json([
             "status"=>200
+        ]);
+    }
+
+    public function addCourse(Request $request){
+
+        $course = new Course;
+        $course->name = $request-> name;
+        $course->save();
+
+        return request()->json([
+            'status'=> 200
         ]);
     }
 }
