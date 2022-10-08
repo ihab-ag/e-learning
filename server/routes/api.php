@@ -7,8 +7,9 @@ use App\Http\Controllers\AdminController;
 
 Route::post('add',[AdminController::class,'addUser']);
 
-Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login');
-    Route::post('refresh', 'refresh');
+Route::post('login',[AuthController::class, 'login']);
 
+Route::group(["middleware" => "auth"], function(){
+    Route::get('refresh',[AuthController::class, 'refresh']);
 });
+    
