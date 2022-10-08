@@ -10,7 +10,8 @@ use App\Http\Controllers\StudentController;
 Route::post('login',[AuthController::class, 'login']);
 
 Route::get('assignments',[StudentController::class, 'viewAssignments']);
-Route::get('submit-assignment',[StudentController::class, 'sumitAssignment']);
+Route::get('submit-assignment',[StudentController::class, 'submitAssignment']);
+Route::get('student-courses',[StudentController::class, 'courses']);
 
 
 Route::group(["middleware" => "auth"], function(){
