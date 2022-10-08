@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Assignment;
+use App\Models\Announcement;
 
 class InstructorController extends Controller
 {
@@ -53,6 +54,23 @@ class InstructorController extends Controller
 
         return response()->json([
             'status'=>200
+        ]);
+    }
+
+    public function addAnnouncement(Request $request){
+
+        // $instructor= Auh::user;
+
+        $announcement= new Announcement();
+
+        $announcement->name= $request->name;
+        $announcement->text= $request->text;
+        $announcement->instructor= 123;
+
+        $announcement->save();
+
+        return response()->json([
+            "status"=>200
         ]);
     }
 }
