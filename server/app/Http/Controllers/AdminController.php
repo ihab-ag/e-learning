@@ -51,7 +51,18 @@ class AdminController extends Controller
         $course->name = $request-> name;
         $course->save();
 
-        return request()->json([
+        return response()->json([
+            'status'=> 200
+        ]);
+    }
+
+    public function assignInstructor(Request $request){
+
+        $course = Course::find($request-> id);
+        $course->instructor = $request-> instructor;
+        $course->save();
+
+        return response()->json([
             'status'=> 200
         ]);
     }

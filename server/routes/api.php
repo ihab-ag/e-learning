@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 
 
-
+Route::post('test',[AdminController::class, 'assignInstructor']);
 Route::post('login',[AuthController::class, 'login']);
 
 Route::group(["middleware" => "auth"], function(){
