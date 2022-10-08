@@ -22,7 +22,7 @@ class AdminController extends Controller
                 'regex:/[0-9]/',
                 'regex:/[A-Z]/'
             ],
-            'type'=>'required'
+            'type'=>['in:instructor,student']
         ]);
         
         $user= new User;
