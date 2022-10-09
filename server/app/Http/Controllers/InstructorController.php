@@ -73,5 +73,16 @@ class InstructorController extends Controller
             "status"=>200
         ]);
     }
+
+    public function students(){
+
+        $students= User::where('type','student')
+        ->get();
+        
+        return response()->json([
+            'status'=> 200,
+            'students'=> $students
+        ]);
+    }
 }
 
