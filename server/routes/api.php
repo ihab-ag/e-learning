@@ -16,6 +16,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::group(["middleware"=> "admin",'prefix'=>'admin'],function(){
         Route::post('add-user',[AdminController::class,'addUser']);
         Route::get('add-course',[AdminController::class,'addCourse']);
+        Route::get('courses',[AdminController::class,'courses']);
         Route::post('assign-instructor',[AdminController::class, 'assignInstructor']);
     });
 
