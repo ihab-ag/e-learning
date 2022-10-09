@@ -20,7 +20,7 @@ const Navigator= ({pageChange})=>{
         <>
         {
             pathname !== '/' && (
-                <header className="header flex-column">
+                <header className="header flex-column container">
                     <h1>E-learning</h1>
                     <ul className="flex-column">
                     {
