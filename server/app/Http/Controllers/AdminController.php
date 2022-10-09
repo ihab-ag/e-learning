@@ -76,4 +76,15 @@ class AdminController extends Controller
             'courses'=> $courses
         ]);
     }
+
+    public function instructors(){
+
+        $instructors= User::where('type','instructor')
+        ->get();
+        
+        return response()->json([
+            'status'=> 200,
+            'instructors'=> $instructors
+        ]);
+    }
 }
