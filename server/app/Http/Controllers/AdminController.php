@@ -66,4 +66,14 @@ class AdminController extends Controller
             'status'=> 200
         ]);
     }
+
+    public function courses(){
+
+        $courses= Course::get();
+
+        return response()->json([
+            'status'=> 200,
+            'courses'=> $courses
+        ]);
+    }
 }
