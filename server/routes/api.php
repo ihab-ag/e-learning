@@ -32,7 +32,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::group(["middleware"=> "student",'prefix'=>'student'],function(){
         Route::get('assignments',[StudentController::class, 'viewAssignments']);
         Route::post('submit-assignment',[StudentController::class, 'submitAssignment']);
-        Route::get('student-courses',[StudentController::class, 'courses']);
+        Route::get('courses',[StudentController::class, 'courses']);
     });
 });
     
