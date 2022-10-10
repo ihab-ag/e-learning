@@ -44,7 +44,7 @@ const Navigator= ({pageChange})=>{
                         (<>
                         <li onClick={()=>pageChange('courses')}>Courses</li>
                         <li onClick={()=>pageChange('assignments')}>Assignments</li>
-                        <li onClick={()=>pageChange('announcments')}>Announcements</li>
+                        <li onClick={()=>pageChange('announcements')}>Announcements</li>
                         </>)
                     
                     }

@@ -1,4 +1,5 @@
 import AnnouncementRegister from "./announcement_register";
+import Announcement from "./announcments";
 import Assignment from "./assignments";
 import AssignmentRegister from "./assignment_register";
 import Course from "./course";
@@ -56,6 +57,11 @@ const Page=({page})=>{
             {
                 page === 'assignments' && (
                     <Assignment />
+                )
+            }
+            {
+                page === 'announcements' && (
+                    <Announcement text="new announcement" />
                 )
             }
         </div>
