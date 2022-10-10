@@ -1,3 +1,4 @@
+import CourseRegister from "./course_register";
 import UserRegister from "./user_register";
 
 const Page=({page})=>{
@@ -6,6 +7,11 @@ const Page=({page})=>{
             {
                 page === 'user' && (
                     <UserRegister />
+                )
+            }
+            {
+                page === 'course' && (
+                    <CourseRegister />
                 )
             }
         </div>
