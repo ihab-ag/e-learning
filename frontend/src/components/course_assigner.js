@@ -3,15 +3,15 @@ const CourseAssigner=({name})=>{
 
 return(
     <>
-        <form className="flex-row" onSubmit={(e)=> e.preventDefault()}>
+        <form className="form course flex-row" onSubmit={(e)=> e.preventDefault()}>
             <p>{name}</p>
-            <div>
-                <select name="id" placeholder="asignee">
+            <div className="flex-row course__div">
+                <select name="id" placeholder="asignee" className="select">
                     <option value="test">test1</option>
                     <option value="test">test2</option>
                 </select>
-                <input type="submit" value="assign" />
-                </div>
+                <input type="submit" value="assign" className="btn" />
+            </div>
         </form>
     </>
 )

@@ -82,3 +82,15 @@ label{
     font-size: 18px;
     font-weight: 500;
 }
+/* courses */
+.course:nth-child(even) {
+    background-color: #b3b3b3;
+}
+.course{
+    justify-content: space-between;
+    width: min(100%,700px);
+    padding: 10px;
+}
+.course__div{
+    gap: 10px;
+}
