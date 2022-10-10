@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navigator from "./components/navigator";
 import Page from './components/page';
+import Login from './components/login';
 
 function App() {
 
@@ -13,7 +14,7 @@ const [page,setPage] = useState('');
       <Navigator pageChange={setPage}/>
       <Routes>
         <Route path='/' element={
-          <>login</>
+          <Login />
         }/>
         <Route path='/admin' element={
           <Page page={page} />
