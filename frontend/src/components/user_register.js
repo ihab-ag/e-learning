@@ -22,7 +22,8 @@ const UserRegister=() =>{
     }
     return(
         <>
-            <form className="form" onSubmit={validate}>
+            <form className="form flex-column" onSubmit={validate}>
+                <h1>Register User</h1>
                 <p>Type:</p>
                 <div className="flex-row">
                     <input type='radio' name='type' value='instructor' onChange={(e) => setType(e.target.value)} id='instructor' checked={type==='instructor' } />
