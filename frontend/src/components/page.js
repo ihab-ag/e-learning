@@ -1,3 +1,4 @@
+import AssignmentRegister from "./assignment_register";
 import CourseAssigner from "./course_assigner";
 import CourseRegister from "./course_register";
 import UserRegister from "./user_register";
@@ -23,6 +24,20 @@ const Page=({page})=>{
                    name="Course" /></>
                 )
             }
+            {
+                page === 'students' && (
+                   <> <CourseAssigner 
+                   name="Course" />
+                    <CourseAssigner 
+                   name="Course" /></>
+                )
+            }
+            {
+                page === 'assignment' && (
+                   <AssignmentRegister />
+                )
+            }
+            
         </div>
     );
 }
