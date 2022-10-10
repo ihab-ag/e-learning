@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navigator from "./components/navigator";
+import Page from './components/page';
 
 function App() {
 
@@ -12,16 +13,16 @@ const [page,setPage] = useState('');
       <Navigator pageChange={setPage}/>
       <Routes>
         <Route path='/' element={
-          <p>login</p>
+          <>login</>
         }/>
         <Route path='/admin' element={
-          <></>
+          <Page page={page} />
         }/>
         <Route path='/instructor' element={
-          <></>
+          <Page page={page} />
         }/>
         <Route path='/student' element={
-          <></>
+          <Page page={page} />
         }/>
       </Routes>
     </BrowserRouter>
