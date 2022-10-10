@@ -1,3 +1,4 @@
+import AnnouncementRegister from "./announcement_register";
 import AssignmentRegister from "./assignment_register";
 import CourseAssigner from "./course_assigner";
 import CourseRegister from "./course_register";
@@ -37,7 +38,11 @@ const Page=({page})=>{
                    <AssignmentRegister />
                 )
             }
-            
+            {
+                page === 'announcement' && (
+                    <AnnouncementRegister />
+                )
+            }
         </div>
     );
 }
