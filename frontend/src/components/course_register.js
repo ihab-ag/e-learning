@@ -3,7 +3,8 @@ import { useState } from "react";
 const CourseRegister=()=>{
     const [name,setName]= useState('');
     const [message,setMessage]= useState('');
-    const validate=()=>{
+    const validate=(e)=>{
+        e.preventDefault();
         if(name==='')
             setMessage('name cannot be empty');
     }
