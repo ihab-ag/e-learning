@@ -7,8 +7,21 @@ import CourseAssigner from "./course_assigner";
 import CourseRegister from "./course_register";
 import StudentAssigner from "./student_assigner";
 import UserRegister from "./user_register";
+import { getInstructors } from "../hooks/all_instructors";
+import { useEffect, useState } from "react";
 
-const Page=({page})=>{
+const Page= ({page})=>{
+    const [instructors,setInstructors] = useState([]);
+    useEffect(()=>{
+        const fetchInstructors =async ()=>{
+            const data = await getInstructors();
+            await setInstructors(data);
+        }
+        if(page=='assign')
+        fetchInstructors();
+    }
+        ,[])
+        
     return(
         <div className="page flex-center">
             {
@@ -23,10 +36,9 @@ const Page=({page})=>{
             }
             {
                 page === 'assign' && (
-                   <> <CourseAssigner 
-                   name="Course" />
+                   <>
                     <CourseAssigner 
-                   name="Course" /></>
+                   name="Course" select={instructors}/></>
                 )
             }
             {

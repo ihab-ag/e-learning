@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 
-const CourseAssigner=({name})=>{
 
+const CourseAssigner= ({name,select})=>{
+    console.log(select)
 return(
     <>
         <form className="form course flex-row" onSubmit={(e)=> e.preventDefault()}>

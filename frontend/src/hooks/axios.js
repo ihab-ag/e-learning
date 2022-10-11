@@ -13,9 +13,9 @@ export const postReq = async (route,data,token=null) =>{
     }
 }
 
-export const getReq = async (route,token=null) =>{
+export const getReq = (route,token=null) =>{
     try{
-        return await axios.get(base_url+route,{
+         return axios.get(base_url+route,{
             headers: {
             'Authorization': 'Bearer ' + token
           }});
