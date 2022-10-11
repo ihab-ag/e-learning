@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { refresh } from "../hooks/refresh";
+import { register } from "../hooks/register";
 
 const UserRegister=() =>{
     const [type,setType]= useState('instructor');
@@ -7,7 +9,7 @@ const UserRegister=() =>{
     const [pass,setpass]= useState('');
     const [message,setMessage]= useState('');
 
-    const validate = (e) => {
+    const validate = async(e) => {
         e.preventDefault();
         if(type !== 'student'&&type !== 'instructor')
             setMessage('Name cannot be empty');
@@ -17,8 +19,17 @@ const UserRegister=() =>{
             setMessage('invalid email');
         else if(pass.length < 6)
             setMessage('password too short')
-        else
+        else{
+            const data = new FormData();
+            data.append("type",type);
+            data.append("name",name);
+            data.append("email",email);
+            data.append("password",pass);
             setMessage('success');
+            await register(data);
+            const res = await refresh();
+            console.log(res);
+        }
     }
     return(
         <>
