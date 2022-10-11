@@ -64,7 +64,7 @@ const Page= ({page})=>{
             {
                 page === 'students' && (
                    <>
-                    {instructor_courses.data.courses.map(item=><StudentAssigner name={item.name} id={item._id} select={students}/> )}
+                    {instructor_courses.data['courses'].map(item=><StudentAssigner name={item.name} id={item._id} select={students}/> )}
                    </>
                 )
             }
