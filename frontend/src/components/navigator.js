@@ -9,10 +9,8 @@ const Navigator= ({pageChange})=>{
     useEffect(()=>{
         if(pathname==='/admin')
             pageChange('user');
-        else if(pathname==='/instructor')
-            pageChange('students');
         else
-        pageChange('courses');
+            pageChange('');
     },[pathname,pageChange])
 
     

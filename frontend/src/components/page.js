@@ -11,10 +11,12 @@ import { getInstructors } from "../hooks/all_instructors";
 import { useEffect, useState } from "react";
 import { getCourses } from "../hooks/all_courses";
 import { getStudents } from "../hooks/all_students";
+import { getInstructorCourses } from "../hooks/instructor_courses";
 
 const Page= ({page})=>{
     const [instructors,setInstructors] = useState([]);
     const [courses,setCourses] = useState([]);
+    const [instructor_courses,setInstructorCourses] = useState([]);
     const [students,setStudents] = useState('');
     useEffect(()=>{
         const fetchInstructors =async ()=>{
@@ -28,13 +30,16 @@ const Page= ({page})=>{
         const fetchStudents = async ()=>{
             const data = await getStudents();
             setStudents(data);
-            console.log(students,data);
-            // data being recieved and not being set no idea why
+        }
+        const fetchInstructorCourses = async ()=>{
+            const data = await getInstructorCourses();
+            setInstructorCourses(data);
         }
 
         fetchCourses();
         fetchInstructors();
         fetchStudents();
+        fetchInstructorCourses();
     },[page,students])
         
     return(
@@ -53,14 +58,13 @@ const Page= ({page})=>{
                 page === 'assign' && (
                    <>
                    {courses.data.courses.map(item=><CourseAssigner name={item.name} id={item._id} select={instructors}/> )}
-                    
                    </>
                 )
             }
             {
                 page === 'students' && (
-                   <> {<StudentAssigner 
-                   name="Course" select={students}/>}
+                   <>
+                    {instructor_courses.data.courses.map(item=><StudentAssigner name={item.name} id={item._id} select={students}/> )}
                    </>
                 )
             }
@@ -90,6 +94,11 @@ const Page= ({page})=>{
             {
                 page === 'announcements' && (
                     <Announcement text="new announcement" />
+                )
+            }
+            {
+                page === '' && (
+                    <></>
                 )
             }
         </div>

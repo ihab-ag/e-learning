@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const StudentAssigner=({name, select})=>{
+const StudentAssigner=({name, select, id})=>{
     const [student,setStudent] = useState('');
     const students = select.data.students;
 return(
