@@ -70,7 +70,7 @@ const Page= ({page})=>{
             }
             {
                 page === 'assignment' && (
-                   <AssignmentRegister />
+                   <AssignmentRegister courses={instructor_courses}/>
                 )
             }
             {
