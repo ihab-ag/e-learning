@@ -19,8 +19,7 @@ const Page= ({page})=>{
         }
         if(page=='assign')
         fetchInstructors();
-    }
-        ,[])
+    },[page])
         
     return(
         <div className="page flex-center">
