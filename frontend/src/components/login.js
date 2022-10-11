@@ -13,6 +13,7 @@ const Login=() =>{
         e.preventDefault();
         const res= await login(data);
         if(res && res.data.status==200){
+            localStorage.setItem("token",res.data.authorisation.token);
             window.location.replace(`http://localhost:3000/${res.data.user.type}`);
         }
         setMessage('Incorrect Credentials');
