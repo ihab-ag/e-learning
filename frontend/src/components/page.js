@@ -5,6 +5,7 @@ import AssignmentRegister from "./assignment_register";
 import Course from "./course";
 import CourseAssigner from "./course_assigner";
 import CourseRegister from "./course_register";
+import StudentAssigner from "./student_assigner";
 import UserRegister from "./user_register";
 
 const Page=({page})=>{
@@ -30,9 +31,9 @@ const Page=({page})=>{
             }
             {
                 page === 'students' && (
-                   <> <CourseAssigner 
+                   <> <StudentAssigner 
                    name="Course" />
-                    <CourseAssigner 
+                    <StudentAssigner 
                    name="Course" /></>
                 )
             }
