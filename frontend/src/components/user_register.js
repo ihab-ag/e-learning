@@ -25,10 +25,12 @@ const UserRegister=() =>{
             data.append("name",name);
             data.append("email",email);
             data.append("password",pass);
-            setMessage('success');
-            await register(data);
-            const res = await refresh();
-            console.log(res);
+            const res = await register(data);
+            if(res && res.data.status==200){
+                setMessage('success');
+                await refresh();
+            }
+            setMessage('email already taken');
         }
     }
     return(
