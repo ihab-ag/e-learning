@@ -14,8 +14,8 @@ class InstructorController extends Controller
 {
     public function getCourses(){
 
-        // $instructor= Auth::user();
-        // $instructor_id= $instructor->id;
+        $instructor= Auth::user();
+        $instructor_id= $instructor->id;
 
         $response=[];
 
