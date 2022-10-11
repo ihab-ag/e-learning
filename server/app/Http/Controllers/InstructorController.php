@@ -65,7 +65,7 @@ class InstructorController extends Controller
 
         $announcement->name= $request->name;
         $announcement->text= $request->text;
-        $announcement->instructor= 123;
+        $announcement->instructor= $instructor->id;
 
         $announcement->save();
 
