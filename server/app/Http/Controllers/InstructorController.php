@@ -59,7 +59,7 @@ class InstructorController extends Controller
 
     public function addAnnouncement(Request $request){
 
-        // $instructor= Auh::user;
+        $instructor= Auh::user;
 
         $announcement= new Announcement();
 
