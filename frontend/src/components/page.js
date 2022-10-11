@@ -10,10 +10,12 @@ import UserRegister from "./user_register";
 import { getInstructors } from "../hooks/all_instructors";
 import { useEffect, useState } from "react";
 import { getCourses } from "../hooks/all_courses";
+import { getStudents } from "../hooks/all_students";
 
 const Page= ({page})=>{
     const [instructors,setInstructors] = useState([]);
     const [courses,setCourses] = useState([]);
+    const [students,setStudents] = useState('');
     useEffect(()=>{
         const fetchInstructors =async ()=>{
             const data = await getInstructors();
@@ -22,13 +24,18 @@ const Page= ({page})=>{
         const fetchCourses =async ()=>{
             const data = await getCourses();
             setCourses(data);
-            console.log(data)
+        }
+        const fetchStudents = async ()=>{
+            const data = await getStudents();
+            setStudents(data);
+            console.log(students,data);
+            // data being recieved and not being set no idea why
         }
 
         fetchCourses();
         fetchInstructors();
-        console.log(courses)
-    },[page])
+        fetchStudents();
+    },[page,students])
         
     return(
         <div className="page flex-center">
@@ -52,10 +59,9 @@ const Page= ({page})=>{
             }
             {
                 page === 'students' && (
-                   <> <StudentAssigner 
-                   name="Course" />
-                    <StudentAssigner 
-                   name="Course" /></>
+                   <> {<StudentAssigner 
+                   name="Course" select={students}/>}
+                   </>
                 )
             }
             {

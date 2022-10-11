@@ -1,14 +1,15 @@
+import { useState } from "react";
 
-const StudentAssigner=({name})=>{
-
+const StudentAssigner=({name, select})=>{
+    const [student,setStudent] = useState('');
+    const students = select.data.students;
 return(
     <>
         <form className="form course flex-row" onSubmit={(e)=> e.preventDefault()}>
             <p>{name}</p>
             <div className="flex-row course__div">
-                <select name="id" className="select">
-                    <option value="test">test1</option>
-                    <option value="test">test2</option>
+                <select name="id" className="select" onChange={(e)=>setStudent(e.target.value)}>
+                {students.map(item=> <option value={item._id}>{item.name}</option>)}
                 </select>
                 <input type="submit" value="assign" className="btn" />
             </div>
