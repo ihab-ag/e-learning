@@ -9,16 +9,25 @@ import StudentAssigner from "./student_assigner";
 import UserRegister from "./user_register";
 import { getInstructors } from "../hooks/all_instructors";
 import { useEffect, useState } from "react";
+import { getCourses } from "../hooks/all_courses";
 
 const Page= ({page})=>{
     const [instructors,setInstructors] = useState([]);
+    const [courses,setCourses] = useState([]);
     useEffect(()=>{
         const fetchInstructors =async ()=>{
             const data = await getInstructors();
-            await setInstructors(data);
+            setInstructors(data);
         }
-        if(page=='assign')
+        const fetchCourses =async ()=>{
+            const data = await getCourses();
+            setCourses(data);
+            console.log(data)
+        }
+
+        fetchCourses();
         fetchInstructors();
+        console.log(courses)
     },[page])
         
     return(
@@ -36,8 +45,9 @@ const Page= ({page})=>{
             {
                 page === 'assign' && (
                    <>
-                    <CourseAssigner 
-                   name="Course" select={instructors}/></>
+                   {courses.data.courses.map(item=><CourseAssigner name={item.name} id={item._id} select={instructors}/> )}
+                    
+                   </>
                 )
             }
             {
